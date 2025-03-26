@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import * as z from "zod";
+=======
+import * as z from "zod"
+>>>>>>> b82a5ebeee784bb7d325f364fa1f2ac273731e58
 
 export const contactFormSchema = z.object({
   name: z.string().min(2, {
@@ -13,6 +17,13 @@ export const contactFormSchema = z.object({
   message: z.string().min(10, {
     message: "Message must be at least 10 characters.",
   }),
+<<<<<<< HEAD
 });
 
 export type ContactFormValues = z.infer<typeof contactFormSchema>;
+=======
+})
+
+export type ContactFormValues = z.infer<typeof contactFormSchema>
+
+>>>>>>> b82a5ebeee784bb7d325f364fa1f2ac273731e58

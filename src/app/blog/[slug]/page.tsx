@@ -1,34 +1,3 @@
-<<<<<<< HEAD
-import Link from "next/link";
-import Image from "next/image";
-import {
-  ArrowLeft,
-  ArrowRight,
-  BarChart2,
-  Calendar,
-  Clock,
-  Facebook,
-  Github,
-  Heart,
-  Instagram,
-  Linkedin,
-  Share2,
-  Twitter,
-  User,
-} from "lucide-react";
-
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-=======
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft, ArrowRight, Calendar, Clock, Facebook, Linkedin, Share2, Twitter, User } from "lucide-react"
@@ -37,7 +6,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { Badge } from "@/components/ui/badge"
->>>>>>> b82a5ebeee784bb7d325f364fa1f2ac273731e58
 
 // Mock blog post data
 const blogPosts = [
@@ -91,15 +59,14 @@ const blogPosts = [
     slug: "10-ways-to-leverage-data-analytics",
     readTime: "8 min read",
   },
-];
+]
 
 // Mock related posts
 const relatedPosts = [
   {
     id: 2,
     title: "The Future of Business Intelligence: Trends to Watch",
-    excerpt:
-      "Stay ahead of the curve with these emerging trends in business intelligence and data visualization.",
+    excerpt: "Stay ahead of the curve with these emerging trends in business intelligence and data visualization.",
     date: "February 28, 2023",
     author: "Michael Chen",
     category: "Business Intelligence",
@@ -109,8 +76,7 @@ const relatedPosts = [
   {
     id: 3,
     title: "How to Build a Data-Driven Culture in Your Organization",
-    excerpt:
-      "Learn the steps to foster a data-driven culture that empowers teams and drives innovation.",
+    excerpt: "Learn the steps to foster a data-driven culture that empowers teams and drives innovation.",
     date: "February 10, 2023",
     author: "Elena Rodriguez",
     category: "Data Culture",
@@ -120,20 +86,18 @@ const relatedPosts = [
   {
     id: 4,
     title: "Real-time Analytics: Why It Matters and How to Implement It",
-    excerpt:
-      "Explore the benefits of real-time analytics and learn how to implement it in your business.",
+    excerpt: "Explore the benefits of real-time analytics and learn how to implement it in your business.",
     date: "January 25, 2023",
     author: "David Kim",
     category: "Real-time Analytics",
     image: "/placeholder.svg?height=200&width=400&text=Real-time+Analytics",
     slug: "real-time-analytics-implementation",
   },
-];
+]
 
 export default function BlogPostPage({ params }: { params: { slug: string } }) {
   // In a real app, you would fetch the post based on the slug
-  const post =
-    blogPosts.find((post) => post.slug === params.slug) || blogPosts[0];
+  const post = blogPosts.find((post) => post.slug === params.slug) || blogPosts[0]
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -143,18 +107,13 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           <div className="container px-4 md:px-6">
             <div className="mx-auto max-w-3xl">
               <div className="flex items-center gap-2 mb-4">
-                <Link
-                  href="/blog"
-                  className="flex items-center text-sm text-muted-foreground hover:text-foreground"
-                >
+                <Link href="/blog" className="flex items-center text-sm text-muted-foreground hover:text-foreground">
                   <ArrowLeft className="mr-1 h-4 w-4" />
                   Back to Blog
                 </Link>
               </div>
               <Badge className="mb-4">{post.category}</Badge>
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">
-                {post.title}
-              </h1>
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">{post.title}</h1>
               <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
                 <div className="flex items-center gap-1">
                   <User className="h-4 w-4" />
@@ -178,13 +137,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           <div className="container px-4 md:px-6">
             <div className="mx-auto max-w-3xl">
               <div className="relative aspect-video overflow-hidden rounded-lg">
-                <Image
-                  src={post.image || "/placeholder.svg"}
-                  alt={post.title}
-                  fill
-                  className="object-cover"
-                  priority
-                />
+                <Image src={post.image || "/placeholder.svg"} alt={post.title} fill className="object-cover" priority />
               </div>
             </div>
           </div>
@@ -203,37 +156,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               <div className="mt-8 sm:mt-12 flex flex-wrap items-center gap-3 sm:gap-4">
                 <span className="font-medium text-sm sm:text-base">Share this article:</span>
                 <div className="flex gap-2">
-<<<<<<< HEAD
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    className="rounded-full"
-                  >
-                    <Twitter className="h-4 w-4" />
-                    <span className="sr-only">Share on Twitter</span>
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    className="rounded-full"
-                  >
-                    <Facebook className="h-4 w-4" />
-                    <span className="sr-only">Share on Facebook</span>
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    className="rounded-full"
-                  >
-                    <Linkedin className="h-4 w-4" />
-                    <span className="sr-only">Share on LinkedIn</span>
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    className="rounded-full"
-                  >
-=======
                   <Button variant="outline" size="icon" className="h-8 w-8 sm:h-10 sm:w-10 rounded-full">
                     <Twitter className="h-4 w-4" />
                     <span className="sr-only">Share on Twitter</span>
@@ -247,7 +169,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                     <span className="sr-only">Share on LinkedIn</span>
                   </Button>
                   <Button variant="outline" size="icon" className="h-8 w-8 sm:h-10 sm:w-10 rounded-full">
->>>>>>> b82a5ebeee784bb7d325f364fa1f2ac273731e58
                     <Share2 className="h-4 w-4" />
                     <span className="sr-only">Copy link</span>
                   </Button>
@@ -268,17 +189,9 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                     />
                   </div>
                   <div>
-<<<<<<< HEAD
-                    <h3 className="text-xl font-bold">{post.author}</h3>
-                    <p className="text-sm text-muted-foreground mb-2">
-                      {post.authorTitle}
-                    </p>
-                    <p>{post.authorBio}</p>
-=======
                     <h3 className="text-lg sm:text-xl font-bold">{post.author}</h3>
                     <p className="text-xs sm:text-sm text-muted-foreground mb-2">{post.authorTitle}</p>
                     <p className="text-sm sm:text-base text-wrap">{post.authorBio}</p>
->>>>>>> b82a5ebeee784bb7d325f364fa1f2ac273731e58
                   </div>
                 </div>
                 <Separator className="my-6 sm:my-8" />
@@ -291,30 +204,19 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
           <div className="container px-4 md:px-6">
             <div className="mx-auto max-w-5xl">
-              <h2 className="text-3xl font-bold tracking-tighter mb-8">
-                Related Articles
-              </h2>
+              <h2 className="text-3xl font-bold tracking-tighter mb-8">Related Articles</h2>
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {relatedPosts.map((post) => (
                   <Card key={post.id} className="overflow-hidden flex flex-col h-full">
                     <div className="relative h-48 w-full">
-                      <Image
-                        src={post.image || "/placeholder.svg"}
-                        alt={post.title}
-                        fill
-                        className="object-cover"
-                      />
+                      <Image src={post.image || "/placeholder.svg"} alt={post.title} fill className="object-cover" />
                     </div>
                     <CardHeader className="flex-1">
                       <div className="flex items-center gap-2">
                         <Badge className="w-fit">{post.category}</Badge>
                       </div>
-                      <CardTitle className="line-clamp-2">
-                        {post.title}
-                      </CardTitle>
-                      <CardDescription className="line-clamp-3">
-                        {post.excerpt}
-                      </CardDescription>
+                      <CardTitle className="line-clamp-2">{post.title}</CardTitle>
+                      <CardDescription className="line-clamp-3">{post.excerpt}</CardDescription>
                     </CardHeader>
                     <CardFooter className="flex flex-col items-start space-y-4">
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -337,49 +239,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             </div>
           </div>
         </section>
-<<<<<<< HEAD
-
-        {/* Newsletter */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-primary text-primary-foreground">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  Stay Updated
-                </h2>
-                <p className="mx-auto max-w-[700px] md:text-xl">
-                  Subscribe to our newsletter to receive the latest insights and
-                  articles directly in your inbox.
-                </p>
-              </div>
-              <div className="mx-auto w-full max-w-sm space-y-2">
-                <form className="flex gap-2">
-                  <Input
-                    type="email"
-                    placeholder="Enter your email"
-                    className="max-w-lg flex-1 bg-primary-foreground text-foreground"
-                  />
-                  <Button type="submit" variant="secondary">
-                    Subscribe
-                  </Button>
-                </form>
-                <p className="text-xs">
-                  By subscribing, you agree to our{" "}
-                  <Link
-                    href="/privacy"
-                    className="underline underline-offset-2"
-                  >
-                    Privacy Policy
-                  </Link>
-                  .
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-=======
->>>>>>> b82a5ebeee784bb7d325f364fa1f2ac273731e58
       </main>
     </div>
-  );
+  )
 }
+

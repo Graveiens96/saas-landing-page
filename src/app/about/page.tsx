@@ -1,17 +1,9 @@
-import Link from "next/link";
-import Image from "next/image";
-import {
-  ArrowRight,
-  Clock,
-  Code2,
-  Globe,
-  Heart,
-  Shield,
-  Users,
-} from "lucide-react";
+import Link from "next/link"
+import Image from "next/image"
+import { ArrowRight, Clock, Code2, Globe, Heart, Shield, Users } from "lucide-react"
 
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
 
 export default function AboutPage() {
   return (
@@ -25,9 +17,8 @@ export default function AboutPage() {
                 Simplifying Data for Everyone
               </h1>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                At StreamLine, we believe in the power of data to transform
-                businesses. Our mission is to make data analytics accessible,
-                intuitive, and actionable for teams of all sizes.
+                At StreamLine, we believe in the power of data to transform businesses. Our mission is to make data
+                analytics accessible, intuitive, and actionable for teams of all sizes.
               </p>
             </div>
           </div>
@@ -39,12 +30,10 @@ export default function AboutPage() {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Our Story
-              </h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Our Story</h2>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                From a small startup to an industry leader, our journey has been
-                defined by innovation and customer success.
+                From a small startup to an industry leader, our journey has been defined by innovation and customer
+                success.
               </p>
             </div>
           </div>
@@ -55,8 +44,8 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold">2018: The Beginning</h3>
               <p className="text-muted-foreground">
-                StreamLine was founded by a team of data scientists and
-                engineers who saw the need for more accessible analytics tools.
+                StreamLine was founded by a team of data scientists and engineers who saw the need for more accessible
+                analytics tools.
               </p>
             </div>
             <div className="flex flex-col items-center space-y-4 text-center">
@@ -65,8 +54,8 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold">2020: Rapid Growth</h3>
               <p className="text-muted-foreground">
-                We expanded our team and product offerings, reaching our first
-                1,000 customers and securing Series A funding.
+                We expanded our team and product offerings, reaching our first 1,000 customers and securing Series A
+                funding.
               </p>
             </div>
             <div className="flex flex-col items-center space-y-4 text-center">
@@ -75,8 +64,8 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold">2023: Global Impact</h3>
               <p className="text-muted-foreground">
-                Today, StreamLine serves over 10,000 businesses worldwide, with
-                offices in New York, London, and Singapore.
+                Today, StreamLine serves over 10,000 businesses worldwide, with offices in New York, London, and
+                Singapore.
               </p>
             </div>
           </div>
@@ -98,12 +87,9 @@ export default function AboutPage() {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Our Core Values
-              </h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Our Core Values</h2>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                These principles guide everything we do at StreamLine, from
-                product development to customer support.
+                These principles guide everything we do at StreamLine, from product development to customer support.
               </p>
             </div>
           </div>
@@ -121,9 +107,7 @@ export default function AboutPage() {
               <CardContent className="flex flex-col items-center p-6 text-center">
                 <Code2 className="h-12 w-12 text-primary mb-4" />
                 <h3 className="text-xl font-bold">Innovation</h3>
-                <p className="text-muted-foreground mt-2">
-                  We constantly push boundaries to create better solutions.
-                </p>
+                <p className="text-muted-foreground mt-2">We constantly push boundaries to create better solutions.</p>
               </CardContent>
             </Card>
             <Card>
@@ -131,8 +115,7 @@ export default function AboutPage() {
                 <Shield className="h-12 w-12 text-primary mb-4" />
                 <h3 className="text-xl font-bold">Integrity</h3>
                 <p className="text-muted-foreground mt-2">
-                  We operate with transparency and honesty in all our
-                  interactions.
+                  We operate with transparency and honesty in all our interactions.
                 </p>
               </CardContent>
             </Card>
@@ -141,8 +124,7 @@ export default function AboutPage() {
                 <Users className="h-12 w-12 text-primary mb-4" />
                 <h3 className="text-xl font-bold">Collaboration</h3>
                 <p className="text-muted-foreground mt-2">
-                  We believe great things happen when diverse minds work
-                  together.
+                  We believe great things happen when diverse minds work together.
                 </p>
               </CardContent>
             </Card>
@@ -155,24 +137,16 @@ export default function AboutPage() {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Meet Our Leadership
-              </h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Meet Our Leadership</h2>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                The talented individuals driving StreamLine's vision and
-                success.
+                The talented individuals driving StreamLine's vision and success.
               </p>
             </div>
           </div>
           <div className="grid gap-8 pt-12 md:grid-cols-2 lg:grid-cols-3">
             <div className="flex flex-col items-center space-y-4">
               <div className="relative h-40 w-40 overflow-hidden rounded-full">
-                <Image
-                  src="/placeholder.svg?height=160&width=160"
-                  alt="Sarah Johnson"
-                  fill
-                  className="object-cover"
-                />
+                <Image src="/placeholder.svg?height=160&width=160" alt="Sarah Johnson" fill className="object-cover" />
               </div>
               <div className="text-center">
                 <h3 className="text-xl font-bold">Sarah Johnson</h3>
@@ -181,12 +155,7 @@ export default function AboutPage() {
             </div>
             <div className="flex flex-col items-center space-y-4">
               <div className="relative h-40 w-40 overflow-hidden rounded-full">
-                <Image
-                  src="/placeholder.svg?height=160&width=160"
-                  alt="Michael Chen"
-                  fill
-                  className="object-cover"
-                />
+                <Image src="/placeholder.svg?height=160&width=160" alt="Michael Chen" fill className="object-cover" />
               </div>
               <div className="text-center">
                 <h3 className="text-xl font-bold">Michael Chen</h3>
@@ -216,12 +185,10 @@ export default function AboutPage() {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Join Our Journey
-              </h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Join Our Journey</h2>
               <p className="mx-auto max-w-[700px] md:text-xl">
-                Whether you're looking to transform your business with data or
-                join our growing team, we'd love to connect with you.
+                Whether you're looking to transform your business with data or join our growing team, we'd love to
+                connect with you.
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -231,10 +198,20 @@ export default function AboutPage() {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
+              <Link href="/careers">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+                >
+                  Join Our Team
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
       </section>
     </>
-  );
+  )
 }
+

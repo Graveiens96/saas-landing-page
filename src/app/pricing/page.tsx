@@ -1,19 +1,5 @@
 import Link from "next/link";
-<<<<<<< HEAD
-import {
-  ArrowRight,
-  BarChart2,
-  Check,
-  Facebook,
-  Github,
-  Heart,
-  Instagram,
-  Linkedin,
-  Twitter,
-} from "lucide-react";
-=======
 import { ArrowRight, Check } from "lucide-react";
->>>>>>> b82a5ebeee784bb7d325f364fa1f2ac273731e58
 
 import { Button } from "@/components/ui/button";
 import {
@@ -130,23 +116,15 @@ export default function PricingPage() {
                     plan.popular ? "border-primary shadow-lg" : ""
                   }`}
                 >
-<<<<<<< HEAD
-                  <CardHeader>
-=======
                   <CardHeader className="p-4 sm:p-6">
->>>>>>> b82a5ebeee784bb7d325f364fa1f2ac273731e58
                     {plan.popular && (
                       <Badge className="w-fit mb-2">Most Popular</Badge>
                     )}
                     <CardTitle>{plan.name}</CardTitle>
                     <div className="flex items-baseline gap-1">
-<<<<<<< HEAD
-                      <span className="text-3xl font-bold">{plan.price}</span>
-=======
                       <span className="text-2xl sm:text-3xl font-bold">
                         {plan.price}
                       </span>
->>>>>>> b82a5ebeee784bb7d325f364fa1f2ac273731e58
                       {plan.price !== "Custom" && (
                         <span className="text-muted-foreground">/month</span>
                       )}
@@ -163,11 +141,7 @@ export default function PricingPage() {
                       ))}
                     </ul>
                   </CardContent>
-<<<<<<< HEAD
-                  <CardFooter>
-=======
                   <CardFooter className="p-4 sm:p-6 pt-0 sm:pt-0">
->>>>>>> b82a5ebeee784bb7d325f364fa1f2ac273731e58
                     <Button
                       className="w-full"
                       variant={plan.popular ? "default" : "outline"}
@@ -365,15 +339,12 @@ export default function PricingPage() {
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
                 <Link href="/contact">
-<<<<<<< HEAD
-=======
                   <Button size="lg" variant="secondary">
                     Contact Sales
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
                 <Link href="/contact">
->>>>>>> b82a5ebeee784bb7d325f364fa1f2ac273731e58
                   <Button
                     size="lg"
                     variant="outline"

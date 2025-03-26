@@ -1,26 +1,19 @@
-import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight, Calendar, Search, User } from "lucide-react";
+import Link from "next/link"
+import Image from "next/image"
+import { ArrowRight, Calendar, Search, User } from "lucide-react"
 
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
-import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button"
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Separator } from "@/components/ui/separator"
+import { Badge } from "@/components/ui/badge"
 
 // Mock blog post data
 const blogPosts = [
   {
     id: 1,
     title: "10 Ways to Leverage Data Analytics for Business Growth",
-    excerpt:
-      "Discover how data analytics can drive business growth and help you make better decisions.",
+    excerpt: "Discover how data analytics can drive business growth and help you make better decisions.",
     date: "March 15, 2023",
     author: "Sarah Johnson",
     category: "Data Analytics",
@@ -30,8 +23,7 @@ const blogPosts = [
   {
     id: 2,
     title: "The Future of Business Intelligence: Trends to Watch",
-    excerpt:
-      "Stay ahead of the curve with these emerging trends in business intelligence and data visualization.",
+    excerpt: "Stay ahead of the curve with these emerging trends in business intelligence and data visualization.",
     date: "February 28, 2023",
     author: "Michael Chen",
     category: "Business Intelligence",
@@ -41,8 +33,7 @@ const blogPosts = [
   {
     id: 3,
     title: "How to Build a Data-Driven Culture in Your Organization",
-    excerpt:
-      "Learn the steps to foster a data-driven culture that empowers teams and drives innovation.",
+    excerpt: "Learn the steps to foster a data-driven culture that empowers teams and drives innovation.",
     date: "February 10, 2023",
     author: "Elena Rodriguez",
     category: "Data Culture",
@@ -52,8 +43,7 @@ const blogPosts = [
   {
     id: 4,
     title: "Real-time Analytics: Why It Matters and How to Implement It",
-    excerpt:
-      "Explore the benefits of real-time analytics and learn how to implement it in your business.",
+    excerpt: "Explore the benefits of real-time analytics and learn how to implement it in your business.",
     date: "January 25, 2023",
     author: "David Kim",
     category: "Real-time Analytics",
@@ -63,8 +53,7 @@ const blogPosts = [
   {
     id: 5,
     title: "Data Visualization Best Practices for Clear Communication",
-    excerpt:
-      "Master the art of data visualization with these best practices for clear and effective communication.",
+    excerpt: "Master the art of data visualization with these best practices for clear and effective communication.",
     date: "January 12, 2023",
     author: "Priya Patel",
     category: "Data Visualization",
@@ -74,15 +63,14 @@ const blogPosts = [
   {
     id: 6,
     title: "Securing Your Data: Best Practices for Data Protection",
-    excerpt:
-      "Learn how to protect your valuable data assets with these security best practices.",
+    excerpt: "Learn how to protect your valuable data assets with these security best practices.",
     date: "December 28, 2022",
     author: "James Wilson",
     category: "Data Security",
     image: "/placeholder.svg?height=200&width=400&text=Data+Security",
     slug: "data-protection-best-practices",
   },
-];
+]
 
 export default function BlogPage() {
   return (
@@ -97,9 +85,14 @@ export default function BlogPage() {
                   StreamLine Blog
                 </h1>
                 <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                  Insights, tips, and best practices for data analytics and
-                  business intelligence.
+                  Insights, tips, and best practices for data analytics and business intelligence.
                 </p>
+              </div>
+              <div className="w-full max-w-sm space-y-2">
+                <div className="relative">
+                  <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+                  <Input type="search" placeholder="Search articles..." className="w-full bg-background pl-8" />
+                </div>
               </div>
             </div>
           </div>
@@ -110,12 +103,8 @@ export default function BlogPage() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-start gap-4">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-                  Featured Post
-                </h2>
-                <p className="text-muted-foreground">
-                  Our latest and most insightful article.
-                </p>
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Featured Post</h2>
+                <p className="text-muted-foreground">Our latest and most insightful article.</p>
               </div>
               <Card className="w-full overflow-hidden">
                 <div className="md:grid md:grid-cols-2">
@@ -130,12 +119,8 @@ export default function BlogPage() {
                   <div className="flex flex-col justify-between p-6">
                     <div className="space-y-4">
                       <Badge className="w-fit">{blogPosts[0].category}</Badge>
-                      <CardTitle className="text-2xl font-bold">
-                        {blogPosts[0].title}
-                      </CardTitle>
-                      <CardDescription className="text-base">
-                        {blogPosts[0].excerpt}
-                      </CardDescription>
+                      <CardTitle className="text-2xl font-bold">{blogPosts[0].title}</CardTitle>
+                      <CardDescription className="text-base">{blogPosts[0].excerpt}</CardDescription>
                     </div>
                     <div className="mt-6 flex flex-col space-y-3">
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -164,57 +149,35 @@ export default function BlogPage() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-start gap-4">
               <div className="space-y-2 max-w-[85vw] sm:max-w-none">
-                <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter md:text-4xl">
-                  Latest Articles
-                </h2>
+                <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter md:text-4xl">Latest Articles</h2>
                 <p className="text-muted-foreground">
-                  Explore our collection of articles on data analytics and
-                  business intelligence.
+                  Explore our collection of articles on data analytics and business intelligence.
                 </p>
               </div>
               <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3 w-full">
                 {blogPosts.slice(1).map((post) => (
-                  <Card
-                    key={post.id}
-                    className="overflow-hidden flex flex-col h-full"
-                  >
+                  <Card key={post.id} className="overflow-hidden flex flex-col h-full">
                     <div className="relative h-40 sm:h-48 w-full">
-                      <Image
-                        src={post.image || "/placeholder.svg"}
-                        alt={post.title}
-                        fill
-                        className="object-cover"
-                      />
+                      <Image src={post.image || "/placeholder.svg"} alt={post.title} fill className="object-cover" />
                     </div>
                     <CardHeader className="p-4 sm:p-6">
                       <div className="flex items-center gap-2">
                         <Badge className="w-fit">{post.category}</Badge>
                       </div>
-                      <CardTitle className="line-clamp-2 text-lg sm:text-xl">
-                        {post.title}
-                      </CardTitle>
-                      <CardDescription className="line-clamp-3">
-                        {post.excerpt}
-                      </CardDescription>
+                      <CardTitle className="line-clamp-2 text-lg sm:text-xl">{post.title}</CardTitle>
+                      <CardDescription className="line-clamp-3">{post.excerpt}</CardDescription>
                     </CardHeader>
                     <CardFooter className="p-4 sm:p-6 pt-0 sm:pt-0 mt-auto">
                       <div className="flex flex-col items-start space-y-4 w-full">
                         <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground flex-wrap">
                           <User className="h-3 w-3 sm:h-4 sm:w-4" />
                           <span>{post.author}</span>
-                          <Separator
-                            orientation="vertical"
-                            className="h-3 sm:h-4"
-                          />
+                          <Separator orientation="vertical" className="h-3 sm:h-4" />
                           <Calendar className="h-3 w-3 sm:h-4 sm:w-4" />
                           <span>{post.date}</span>
                         </div>
                         <Link href={`/blog/${post.slug}`} className="w-full">
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            className="w-full"
-                          >
+                          <Button variant="outline" size="sm" className="w-full">
                             Read More
                             <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
                           </Button>
@@ -233,12 +196,9 @@ export default function BlogPage() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-start gap-4">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-                  Categories
-                </h2>
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Categories</h2>
                 <p className="text-muted-foreground">
-                  Browse articles by topic to find exactly what you're looking
-                  for.
+                  Browse articles by topic to find exactly what you're looking for.
                 </p>
               </div>
               <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -252,12 +212,7 @@ export default function BlogPage() {
                   "Real-time Analytics",
                   "Data Integration",
                 ].map((category, index) => (
-                  <Link
-                    key={index}
-                    href={`/blog/category/${category
-                      .toLowerCase()
-                      .replace(/\s+/g, "-")}`}
-                  >
+                  <Link key={index} href={`/blog/category/${category.toLowerCase().replace(/\s+/g, "-")}`}>
                     <Card className="h-full transition-colors hover:bg-muted/50">
                       <CardHeader>
                         <CardTitle>{category}</CardTitle>
@@ -275,12 +230,9 @@ export default function BlogPage() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  Stay Updated
-                </h2>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Stay Updated</h2>
                 <p className="mx-auto max-w-[700px] md:text-xl">
-                  Subscribe to our newsletter to receive the latest insights and
-                  articles directly in your inbox.
+                  Subscribe to our newsletter to receive the latest insights and articles directly in your inbox.
                 </p>
               </div>
               <div className="mx-auto w-full max-w-sm space-y-2">
@@ -294,12 +246,19 @@ export default function BlogPage() {
                     Subscribe
                   </Button>
                 </form>
-                <p className="text-xs">By subscribing, you agree to our .</p>
+                <p className="text-xs">
+                  By subscribing, you agree to our{" "}
+                  <Link href="/privacy" className="underline underline-offset-2">
+                    Privacy Policy
+                  </Link>
+                  .
+                </p>
               </div>
             </div>
           </div>
         </section>
       </main>
     </div>
-  );
+  )
 }
+
