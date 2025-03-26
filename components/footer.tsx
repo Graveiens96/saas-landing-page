@@ -1,6 +1,13 @@
-import Link from "next/link"
-import { BarChart2, Facebook, Github, Heart, Instagram, Linkedin } from "lucide-react"
-import { Separator } from "@/components/ui/separator"
+import Link from "next/link";
+import {
+  BarChart2,
+  Facebook,
+  Github,
+  Heart,
+  Instagram,
+  Linkedin,
+} from "lucide-react";
+import { Separator } from "@/components/ui/separator";
 
 export function Footer() {
   return (
@@ -9,13 +16,16 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-3">
           {/* Company Information */}
           <div className="space-y-4">
-            <Link href="/" className="flex items-center gap-2 font-bold text-xl">
+            <Link
+              href="/"
+              className="flex items-center gap-2 font-bold text-xl"
+            >
               <BarChart2 className="h-6 w-6" />
               <span>StreamLine</span>
             </Link>
             <p className="text-sm text-muted-foreground">
-              Simplifying data analytics for businesses worldwide. Our platform helps you transform complex data into
-              actionable insights.
+              Simplifying data analytics for businesses worldwide. Our platform
+              helps you transform complex data into actionable insights.
             </p>
           </div>
 
@@ -24,69 +34,46 @@ export function Footer() {
             <h3 className="text-lg font-semibold">Pages</h3>
             <ul className="grid grid-cols-2 gap-2">
               <li>
-                <Link href="/" className="text-sm text-muted-foreground hover:text-foreground">
+                <Link
+                  href="/"
+                  className="text-sm text-muted-foreground hover:text-foreground"
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground">
+                <Link
+                  href="/about"
+                  className="text-sm text-muted-foreground hover:text-foreground"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/pricing" className="text-sm text-muted-foreground hover:text-foreground">
+                <Link
+                  href="/pricing"
+                  className="text-sm text-muted-foreground hover:text-foreground"
+                >
                   Pricing
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-sm text-muted-foreground hover:text-foreground">
+                <Link
+                  href="/blog"
+                  className="text-sm text-muted-foreground hover:text-foreground"
+                >
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-sm text-muted-foreground hover:text-foreground">
+                <Link
+                  href="/contact"
+                  className="text-sm text-muted-foreground hover:text-foreground"
+                >
                   Contact
                 </Link>
               </li>
             </ul>
-          </div>
-
-          {/* Social Media Links */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Connect</h3>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="#"
-                className="rounded-full bg-muted p-2 text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Facebook className="h-5 w-5" />
-                <span className="sr-only">Facebook</span>
-              </Link>
-              <Link
-                href="#"
-                className="rounded-full bg-muted p-2 text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Instagram className="h-5 w-5" />
-                <span className="sr-only">Instagram</span>
-              </Link>
-              <Link
-                href="#"
-                className="rounded-full bg-muted p-2 text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Linkedin className="h-5 w-5" />
-                <span className="sr-only">LinkedIn</span>
-              </Link>
-              <Link
-                href="#"
-                className="rounded-full bg-muted p-2 text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Github className="h-5 w-5" />
-                <span className="sr-only">GitHub</span>
-              </Link>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Follow us for the latest updates, tips, and insights on data analytics.
-            </p>
           </div>
         </div>
 
@@ -116,6 +103,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
-

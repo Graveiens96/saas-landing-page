@@ -1,18 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import {
-  ArrowRight,
-  BarChart2,
-  Calendar,
-  Facebook,
-  Github,
-  Heart,
-  Instagram,
-  Linkedin,
-  Search,
-  Twitter,
-  User,
-} from "lucide-react"
+import { ArrowRight, Calendar, Search, User } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -87,43 +75,6 @@ const blogPosts = [
 export default function BlogPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center">
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-            <BarChart2 className="h-6 w-6" />
-            <span>StreamLine</span>
-          </Link>
-          <nav className="ml-auto flex gap-4 sm:gap-6">
-            <Link href="/" className="text-sm font-medium hover:underline underline-offset-4">
-              Home
-            </Link>
-            <Link href="/about" className="text-sm font-medium hover:underline underline-offset-4">
-              About
-            </Link>
-            <Link href="/pricing" className="text-sm font-medium hover:underline underline-offset-4">
-              Pricing
-            </Link>
-            <Link href="/blog" className="text-sm font-medium underline underline-offset-4">
-              Blog
-            </Link>
-            <Link href="/contact" className="text-sm font-medium hover:underline underline-offset-4">
-              Contact
-            </Link>
-          </nav>
-          <div className="ml-4 lg:ml-6 flex items-center gap-2">
-            <Link href="/login">
-              <Button variant="ghost" size="sm">
-                Log in
-              </Button>
-            </Link>
-            <Link href="/signup">
-              <Button size="sm">Sign up</Button>
-            </Link>
-          </div>
-        </div>
-      </header>
-
       <main className="flex-1">
         {/* Hero Section */}
         <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-background to-muted">
@@ -194,66 +145,47 @@ export default function BlogPage() {
         </section>
 
         {/* Blog Posts */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+        <section className="w-full py-10 md:py-16 lg:py-24 bg-muted">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-start gap-4">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Latest Articles</h2>
+              <div className="space-y-2 max-w-[85vw] sm:max-w-none">
+                <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter md:text-4xl">Latest Articles</h2>
                 <p className="text-muted-foreground">
                   Explore our collection of articles on data analytics and business intelligence.
                 </p>
               </div>
-              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3 w-full">
                 {blogPosts.slice(1).map((post) => (
-                  <Card key={post.id} className="overflow-hidden">
-                    <div className="relative h-48 w-full">
+                  <Card key={post.id} className="overflow-hidden flex flex-col h-full">
+                    <div className="relative h-40 sm:h-48 w-full">
                       <Image src={post.image || "/placeholder.svg"} alt={post.title} fill className="object-cover" />
                     </div>
-                    <CardHeader>
+                    <CardHeader className="p-4 sm:p-6">
                       <div className="flex items-center gap-2">
                         <Badge className="w-fit">{post.category}</Badge>
                       </div>
-                      <CardTitle className="line-clamp-2">{post.title}</CardTitle>
+                      <CardTitle className="line-clamp-2 text-lg sm:text-xl">{post.title}</CardTitle>
                       <CardDescription className="line-clamp-3">{post.excerpt}</CardDescription>
                     </CardHeader>
-                    <CardFooter className="flex flex-col items-start space-y-4">
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <User className="h-4 w-4" />
-                        <span>{post.author}</span>
-                        <Separator orientation="vertical" className="h-4" />
-                        <Calendar className="h-4 w-4" />
-                        <span>{post.date}</span>
+                    <CardFooter className="p-4 sm:p-6 pt-0 sm:pt-0 mt-auto">
+                      <div className="flex flex-col items-start space-y-4 w-full">
+                        <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground flex-wrap">
+                          <User className="h-3 w-3 sm:h-4 sm:w-4" />
+                          <span>{post.author}</span>
+                          <Separator orientation="vertical" className="h-3 sm:h-4" />
+                          <Calendar className="h-3 w-3 sm:h-4 sm:w-4" />
+                          <span>{post.date}</span>
+                        </div>
+                        <Link href={`/blog/${post.slug}`} className="w-full">
+                          <Button variant="outline" size="sm" className="w-full">
+                            Read More
+                            <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
+                          </Button>
+                        </Link>
                       </div>
-                      <Link href={`/blog/${post.slug}`}>
-                        <Button variant="outline" size="sm">
-                          Read More
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
-                      </Link>
                     </CardFooter>
                   </Card>
                 ))}
-              </div>
-              <div className="mt-8 flex w-full justify-center">
-                <div className="flex gap-2">
-                  <Button variant="outline" size="icon" disabled>
-                    <ArrowRight className="h-4 w-4 rotate-180" />
-                    <span className="sr-only">Previous page</span>
-                  </Button>
-                  <Button variant="outline" size="sm" className="font-medium">
-                    1
-                  </Button>
-                  <Button variant="outline" size="sm">
-                    2
-                  </Button>
-                  <Button variant="outline" size="sm">
-                    3
-                  </Button>
-                  <Button variant="outline" size="icon">
-                    <ArrowRight className="h-4 w-4" />
-                    <span className="sr-only">Next page</span>
-                  </Button>
-                </div>
               </div>
             </div>
           </div>
@@ -326,98 +258,6 @@ export default function BlogPage() {
           </div>
         </section>
       </main>
-
-      {/* Footer */}
-      <footer className="w-full border-t bg-background py-6 md:py-12">
-        <div className="container px-4 md:px-6">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            <div className="space-y-4">
-              <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-                <BarChart2 className="h-6 w-6" />
-                <span>StreamLine</span>
-              </Link>
-              <p className="text-sm text-muted-foreground">Simplifying data analytics for businesses worldwide.</p>
-            </div>
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold">Company</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/careers" className="text-sm text-muted-foreground hover:text-foreground">
-                    Careers
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/blog" className="text-sm text-muted-foreground hover:text-foreground">
-                    Blog
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold">Legal</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/terms" className="text-sm text-muted-foreground hover:text-foreground">
-                    Terms of Service
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/cookies" className="text-sm text-muted-foreground hover:text-foreground">
-                    Cookie Policy
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold">Connect</h3>
-              <div className="flex space-x-4">
-                <Link href="https://twitter.com/streamline" className="text-muted-foreground hover:text-foreground">
-                  <Twitter className="h-5 w-5" />
-                  <span className="sr-only">Twitter</span>
-                </Link>
-                <Link
-                  href="https://linkedin.com/company/streamline"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  <Linkedin className="h-5 w-5" />
-                  <span className="sr-only">LinkedIn</span>
-                </Link>
-                <Link href="https://facebook.com/streamline" className="text-muted-foreground hover:text-foreground">
-                  <Facebook className="h-5 w-5" />
-                  <span className="sr-only">Facebook</span>
-                </Link>
-                <Link href="https://instagram.com/streamline" className="text-muted-foreground hover:text-foreground">
-                  <Instagram className="h-5 w-5" />
-                  <span className="sr-only">Instagram</span>
-                </Link>
-                <Link href="https://github.com/streamline" className="text-muted-foreground hover:text-foreground">
-                  <Github className="h-5 w-5" />
-                  <span className="sr-only">GitHub</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-          <Separator className="my-6" />
-          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} StreamLine, Inc. All rights reserved.
-            </p>
-            <p className="text-sm text-muted-foreground">
-              Made with <Heart className="inline-block h-4 w-4 text-red-500" /> in San Francisco, CA
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }

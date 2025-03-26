@@ -1,47 +1,28 @@
-import Link from "next/link";
-import Image from "next/image";
-import {
-  ArrowRight,
-  BarChart2,
-  Check,
-  Code2,
-  Globe,
-  Shield,
-  Star,
-  Users,
-  Zap,
-} from "lucide-react";
+import Link from "next/link"
+import Image from "next/image"
+import { ArrowRight, BarChart2, Check, Code2, Globe, Shield, Star, Users, Zap } from "lucide-react"
 
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Separator } from "@/components/ui/separator"
+import { Badge } from "@/components/ui/badge"
 
 export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-b from-background to-muted">
+      <section className="w-full py-8 md:py-12 lg:py-24 xl:py-32 bg-gradient-to-b from-background to-muted">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
             <div className="flex flex-col justify-center space-y-4">
               <div className="space-y-2">
-                <Badge className="inline-flex mb-2">
-                  New Features Available
-                </Badge>
+                <Badge className="inline-flex mb-2">New Features Available</Badge>
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
                   Transform Your Data Into Actionable Insights
                 </h1>
                 <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                  StreamLine helps businesses of all sizes visualize, analyze,
-                  and leverage their data to make better decisions, faster.
+                  StreamLine helps businesses of all sizes visualize, analyze, and leverage their data to make better
+                  decisions, faster.
                 </p>
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -68,26 +49,24 @@ export default function HomePage() {
                 <span>Cancel anytime</span>
               </div>
             </div>
-            <div className="relative flex items-center justify-center">
-              <div className="relative h-[350px] w-full overflow-hidden rounded-lg shadow-xl lg:h-[400px]">
+            <div className="relative flex items-center justify-center px-2 sm:px-4">
+              <div className="relative h-[300px] w-full overflow-hidden rounded-lg shadow-xl sm:h-[350px] lg:h-[400px]">
                 <Image
-                  src="https://images.unsplash.com/photo-1642132652806-8aa09801c2ab?q=80&w=1460&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  src="/placeholder.svg?height=400&width=600"
                   alt="StreamLine Dashboard Preview"
                   fill
                   className="object-cover"
                   priority
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 h-[150px] w-[150px] rounded-lg bg-primary/10 backdrop-blur-sm border border-primary/20 p-4 shadow-lg">
+              <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 h-[120px] w-[120px] sm:h-[150px] sm:w-[150px] rounded-lg bg-primary/10 backdrop-blur-sm border border-primary/20 p-3 sm:p-4 shadow-lg">
                 <div className="flex flex-col h-full justify-between">
-                  <div className="flex items-center gap-2">
-                    <Zap className="h-5 w-5 text-primary" />
-                    <span className="text-sm font-medium">Real-time data</span>
+                  <div className="flex items-center gap-1 sm:gap-2">
+                    <Zap className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
+                    <span className="text-xs sm:text-sm font-medium">Real-time data</span>
                   </div>
-                  <p className="text-2xl font-bold">+27%</p>
-                  <p className="text-xs text-muted-foreground">
-                    Increase in insights
-                  </p>
+                  <p className="text-xl sm:text-2xl font-bold">+27%</p>
+                  <p className="text-xs text-muted-foreground">Increase in insights</p>
                 </div>
               </div>
             </div>
@@ -100,9 +79,7 @@ export default function HomePage() {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-xl font-medium tracking-tight">
-                Trusted by innovative companies worldwide
-              </h2>
+              <h2 className="text-xl font-medium tracking-tight">Trusted by innovative companies worldwide</h2>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16 grayscale opacity-70">
               {[1, 2, 3, 4, 5].map((i) => (
@@ -122,20 +99,19 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32">
+      <section className="w-full py-10 md:py-16 lg:py-24">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8 md:mb-12">
+            <div className="space-y-2 max-w-[85vw] sm:max-w-none">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                 Powerful Features
               </h2>
-              <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                Everything you need to understand, visualize, and act on your
-                data.
+              <p className="mx-auto max-w-[700px] text-muted-foreground sm:text-lg md:text-xl">
+                Everything you need to understand, visualize, and act on your data.
               </p>
             </div>
           </div>
-          <div className="grid grid-cols-1 gap-6 pt-12 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 sm:gap-6 pt-4 sm:pt-8 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 icon: <BarChart2 className="h-10 w-10 text-primary" />,
@@ -152,14 +128,12 @@ export default function HomePage() {
               {
                 icon: <Users className="h-10 w-10 text-primary" />,
                 title: "Team Collaboration",
-                description:
-                  "Share insights and work together seamlessly with built-in collaboration tools.",
+                description: "Share insights and work together seamlessly with built-in collaboration tools.",
               },
               {
                 icon: <Globe className="h-10 w-10 text-primary" />,
                 title: "Multi-source Integration",
-                description:
-                  "Connect to all your data sources in one place with our extensive integration library.",
+                description: "Connect to all your data sources in one place with our extensive integration library.",
               },
               {
                 icon: <Shield className="h-10 w-10 text-primary" />,
@@ -170,19 +144,13 @@ export default function HomePage() {
               {
                 icon: <Code2 className="h-10 w-10 text-primary" />,
                 title: "Developer API",
-                description:
-                  "Build custom solutions with our comprehensive API and developer tools.",
+                description: "Build custom solutions with our comprehensive API and developer tools.",
               },
             ].map((feature, index) => (
-              <Card
-                key={index}
-                className="flex flex-col items-center text-center p-6"
-              >
+              <Card key={index} className="flex flex-col items-center text-center p-6">
                 <div className="mb-4">{feature.icon}</div>
                 <h3 className="text-xl font-bold">{feature.title}</h3>
-                <p className="text-muted-foreground mt-2">
-                  {feature.description}
-                </p>
+                <p className="text-muted-foreground mt-2">{feature.description}</p>
               </Card>
             ))}
           </div>
@@ -194,12 +162,9 @@ export default function HomePage() {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                How StreamLine Works
-              </h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">How StreamLine Works</h2>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                A simple three-step process to transform your data into
-                actionable insights.
+                A simple three-step process to transform your data into actionable insights.
               </p>
             </div>
           </div>
@@ -208,14 +173,12 @@ export default function HomePage() {
               {
                 step: "01",
                 title: "Connect Your Data",
-                description:
-                  "Easily connect StreamLine to your existing data sources with our one-click integrations.",
+                description: "Easily connect StreamLine to your existing data sources with our one-click integrations.",
               },
               {
                 step: "02",
                 title: "Visualize & Analyze",
-                description:
-                  "Create custom dashboards and reports to visualize your data in meaningful ways.",
+                description: "Create custom dashboards and reports to visualize your data in meaningful ways.",
               },
               {
                 step: "03",
@@ -224,10 +187,7 @@ export default function HomePage() {
                   "Make data-driven decisions with confidence using our actionable insights and recommendations.",
               },
             ].map((item, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center space-y-4 text-center"
-              >
+              <div key={index} className="flex flex-col items-center space-y-4 text-center">
                 <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary text-primary-foreground">
                   <span className="text-xl font-bold">{item.step}</span>
                 </div>
@@ -244,12 +204,9 @@ export default function HomePage() {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                What Our Customers Say
-              </h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">What Our Customers Say</h2>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                Don't just take our word for it. Here's what our customers have
-                to say about StreamLine.
+                Don't just take our word for it. Here's what our customers have to say about StreamLine.
               </p>
             </div>
           </div>
@@ -283,10 +240,7 @@ export default function HomePage() {
                     {Array(testimonial.rating)
                       .fill(0)
                       .map((_, i) => (
-                        <Star
-                          key={i}
-                          className="h-5 w-5 fill-primary text-primary"
-                        />
+                        <Star key={i} className="h-5 w-5 fill-primary text-primary" />
                       ))}
                   </div>
                   <CardDescription className="text-base font-medium text-foreground">
@@ -297,21 +251,15 @@ export default function HomePage() {
                   <div className="flex items-center space-x-4">
                     <div className="relative h-10 w-10 overflow-hidden rounded-full bg-muted">
                       <Image
-                        src={`/placeholder.svg?height=40&width=40&text=${testimonial.author.charAt(
-                          0
-                        )}`}
+                        src={`/placeholder.svg?height=40&width=40&text=${testimonial.author.charAt(0)}`}
                         alt={testimonial.author}
                         fill
                         className="object-cover"
                       />
                     </div>
                     <div>
-                      <p className="text-sm font-medium">
-                        {testimonial.author}
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        {testimonial.role}
-                      </p>
+                      <p className="text-sm font-medium">{testimonial.author}</p>
+                      <p className="text-xs text-muted-foreground">{testimonial.role}</p>
                     </div>
                   </div>
                 </CardFooter>
@@ -330,8 +278,7 @@ export default function HomePage() {
                 Simple, Transparent Pricing
               </h2>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                Choose the plan that's right for your business. All plans
-                include a 14-day free trial.
+                Choose the plan that's right for your business. All plans include a 14-day free trial.
               </p>
             </div>
           </div>
@@ -341,13 +288,7 @@ export default function HomePage() {
                 name: "Starter",
                 price: "$49",
                 description: "Perfect for small businesses and startups.",
-                features: [
-                  "Up to 5 users",
-                  "5 data sources",
-                  "Basic analytics",
-                  "Daily data refresh",
-                  "Email support",
-                ],
+                features: ["Up to 5 users", "5 data sources", "Basic analytics", "Daily data refresh", "Email support"],
                 cta: "Get Started",
                 popular: false,
               },
@@ -385,22 +326,13 @@ export default function HomePage() {
                 popular: false,
               },
             ].map((plan, index) => (
-              <Card
-                key={index}
-                className={`flex flex-col ${
-                  plan.popular ? "border-primary shadow-lg" : ""
-                }`}
-              >
+              <Card key={index} className={`flex flex-col ${plan.popular ? "border-primary shadow-lg" : ""}`}>
                 <CardHeader>
-                  {plan.popular && (
-                    <Badge className="w-fit mb-2">Most Popular</Badge>
-                  )}
+                  {plan.popular && <Badge className="w-fit mb-2">Most Popular</Badge>}
                   <CardTitle>{plan.name}</CardTitle>
                   <div className="flex items-baseline gap-1">
                     <span className="text-3xl font-bold">{plan.price}</span>
-                    {plan.price !== "Custom" && (
-                      <span className="text-muted-foreground">/month</span>
-                    )}
+                    {plan.price !== "Custom" && <span className="text-muted-foreground">/month</span>}
                   </div>
                   <CardDescription>{plan.description}</CardDescription>
                 </CardHeader>
@@ -415,10 +347,7 @@ export default function HomePage() {
                   </ul>
                 </CardContent>
                 <CardFooter>
-                  <Button
-                    className="w-full"
-                    variant={plan.popular ? "default" : "outline"}
-                  >
+                  <Button className="w-full" variant={plan.popular ? "default" : "outline"}>
                     {plan.cta}
                   </Button>
                 </CardFooter>
@@ -428,10 +357,7 @@ export default function HomePage() {
           <div className="mt-12 text-center">
             <p className="text-muted-foreground">
               Need a custom plan?{" "}
-              <Link
-                href="/contact"
-                className="font-medium text-primary hover:underline"
-              >
+              <Link href="/contact" className="font-medium text-primary hover:underline">
                 Contact our sales team
               </Link>
             </p>
@@ -448,8 +374,7 @@ export default function HomePage() {
                 Ready to Transform Your Data?
               </h2>
               <p className="mx-auto max-w-[700px] md:text-xl">
-                Join thousands of businesses that use StreamLine to make better
-                decisions with their data.
+                Join thousands of businesses that use StreamLine to make better decisions with their data.
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -469,12 +394,11 @@ export default function HomePage() {
                 </Button>
               </Link>
             </div>
-            <p className="text-sm">
-              No credit card required. 14-day free trial.
-            </p>
+            <p className="text-sm">No credit card required. 14-day free trial.</p>
           </div>
         </div>
       </section>
     </>
-  );
+  )
 }
+
