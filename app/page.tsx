@@ -95,32 +95,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Trusted By Section */}
-      <section className="w-full py-12 md:py-16 border-y bg-muted/50">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="space-y-2">
-              <h2 className="text-xl font-medium tracking-tight">
-                Trusted by innovative companies worldwide
-              </h2>
-            </div>
-            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16 grayscale opacity-70">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <div key={i} className="flex items-center justify-center">
-                  <Image
-                    src={`/placeholder.svg?height=40&width=120&text=LOGO ${i}`}
-                    alt={`Company ${i} logo`}
-                    width={120}
-                    height={40}
-                    className="h-8 w-auto object-contain"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Features Section */}
       <section className="w-full py-12 md:py-24 lg:py-32">
         <div className="container px-4 md:px-6">

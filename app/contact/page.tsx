@@ -1,105 +1,71 @@
-"use client"
+"use client";
 
-import type React from "react"
-
-import { useState } from "react"
-import Link from "next/link"
+import { useState } from "react";
+import Link from "next/link";
 import {
   ArrowRight,
-  BarChart2,
   Facebook,
   Github,
-  Heart,
   Instagram,
   Linkedin,
   Mail,
   MapPin,
   Phone,
-  Twitter,
-} from "lucide-react"
+} from "lucide-react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Separator } from "@/components/ui/separator"
-import { Textarea } from "@/components/ui/textarea"
-import { toast } from "@/components/ui/use-toast"
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "@/components/ui/use-toast";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { contactFormSchema, type ContactFormValues } from "@/lib/zod-schemas";
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you as soon as possible.",
-    })
-
-    setFormData({
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
       name: "",
       email: "",
       subject: "",
       message: "",
-    })
-    setIsSubmitting(false)
-  }
+    },
+  });
+
+  const onSubmit = async (data: ContactFormValues) => {
+    setIsSubmitting(true);
+
+    // Simulate form submission
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
+    toast({
+      title: "Message sent!",
+      description: "We'll get back to you as soon as possible.",
+    });
+
+    form.reset();
+    setIsSubmitting(false);
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center">
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-            <BarChart2 className="h-6 w-6" />
-            <span>StreamLine</span>
-          </Link>
-          <nav className="ml-auto flex gap-4 sm:gap-6">
-            <Link href="/" className="text-sm font-medium hover:underline underline-offset-4">
-              Home
-            </Link>
-            <Link href="/about" className="text-sm font-medium hover:underline underline-offset-4">
-              About
-            </Link>
-            <Link href="/pricing" className="text-sm font-medium hover:underline underline-offset-4">
-              Pricing
-            </Link>
-            <Link href="/blog" className="text-sm font-medium hover:underline underline-offset-4">
-              Blog
-            </Link>
-            <Link href="/contact" className="text-sm font-medium underline underline-offset-4">
-              Contact
-            </Link>
-          </nav>
-          <div className="ml-4 lg:ml-6 flex items-center gap-2">
-            <Link href="/login">
-              <Button variant="ghost" size="sm">
-                Log in
-              </Button>
-            </Link>
-            <Link href="/signup">
-              <Button size="sm">Sign up</Button>
-            </Link>
-          </div>
-        </div>
-      </header>
-
       <main className="flex-1">
         {/* Hero Section */}
         <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-background to-muted">
@@ -110,8 +76,8 @@ export default function ContactPage() {
                   Get in Touch
                 </h1>
                 <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                  Have questions or need help? We're here for you. Reach out to our team and we'll get back to you as
-                  soon as possible.
+                  Have questions or need help? We're here for you. Reach out to
+                  our team and we'll get back to you as soon as possible.
                 </p>
               </div>
             </div>
@@ -119,24 +85,32 @@ export default function ContactPage() {
         </section>
 
         {/* Contact Form and Info */}
-        <section className="w-full py-12 md:py-24 lg:py-32">
+        <section className="w-full py-10 md:py-16 lg:py-24">
           <div className="container px-4 md:px-6">
-            <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
-              <div className="space-y-4">
+            <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
+              <div className="space-y-6">
                 <div className="space-y-2">
-                  <h2 className="text-3xl font-bold tracking-tighter">Contact Information</h2>
+                  <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter">
+                    Contact Information
+                  </h2>
                   <p className="text-muted-foreground">
-                    Our team is ready to assist you with any questions or concerns you may have.
+                    Our team is ready to assist you with any questions or
+                    concerns you may have.
                   </p>
                 </div>
                 <div className="grid gap-4">
                   <Card>
-                    <CardContent className="flex items-center gap-4 p-6">
-                      <Mail className="h-8 w-8 text-primary" />
+                    <CardContent className="flex items-center gap-3 sm:gap-4 p-4 sm:p-6">
+                      <Mail className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
                       <div>
-                        <CardTitle className="text-xl">Email</CardTitle>
-                        <CardDescription className="text-base">
-                          <a href="mailto:info@streamline.com" className="hover:underline">
+                        <CardTitle className="text-base sm:text-xl">
+                          Email
+                        </CardTitle>
+                        <CardDescription className="text-sm sm:text-base">
+                          <a
+                            href="mailto:info@streamline.com"
+                            className="hover:underline"
+                          >
                             info@streamline.com
                           </a>
                         </CardDescription>
@@ -144,12 +118,17 @@ export default function ContactPage() {
                     </CardContent>
                   </Card>
                   <Card>
-                    <CardContent className="flex items-center gap-4 p-6">
-                      <Phone className="h-8 w-8 text-primary" />
+                    <CardContent className="flex items-center gap-3 sm:gap-4 p-4 sm:p-6">
+                      <Phone className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
                       <div>
-                        <CardTitle className="text-xl">Phone</CardTitle>
-                        <CardDescription className="text-base">
-                          <a href="tel:+1-555-123-4567" className="hover:underline">
+                        <CardTitle className="text-base sm:text-xl">
+                          Phone
+                        </CardTitle>
+                        <CardDescription className="text-sm sm:text-base">
+                          <a
+                            href="tel:+1-555-123-4567"
+                            className="hover:underline"
+                          >
                             +1 (555) 123-4567
                           </a>
                         </CardDescription>
@@ -157,11 +136,13 @@ export default function ContactPage() {
                     </CardContent>
                   </Card>
                   <Card>
-                    <CardContent className="flex items-center gap-4 p-6">
-                      <MapPin className="h-8 w-8 text-primary" />
+                    <CardContent className="flex items-center gap-3 sm:gap-4 p-4 sm:p-6">
+                      <MapPin className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
                       <div>
-                        <CardTitle className="text-xl">Office</CardTitle>
-                        <CardDescription className="text-base">
+                        <CardTitle className="text-base sm:text-xl">
+                          Office
+                        </CardTitle>
+                        <CardDescription className="text-sm sm:text-base">
                           123 Data Street, San Francisco, CA 94107
                         </CardDescription>
                       </div>
@@ -169,129 +150,140 @@ export default function ContactPage() {
                   </Card>
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-xl font-bold">Connect With Us</h3>
-                  <div className="flex space-x-4">
+                  <h3 className="text-lg sm:text-xl font-bold">
+                    Connect With Us
+                  </h3>
+                  <div className="flex flex-wrap space-x-3 sm:space-x-4">
                     <Link
-                      href="https://twitter.com/streamline"
-                      className="rounded-full bg-muted p-2 text-muted-foreground hover:text-foreground"
-                    >
-                      <Twitter className="h-5 w-5" />
-                      <span className="sr-only">Twitter</span>
-                    </Link>
-                    <Link
-                      href="https://linkedin.com/company/streamline"
-                      className="rounded-full bg-muted p-2 text-muted-foreground hover:text-foreground"
-                    >
-                      <Linkedin className="h-5 w-5" />
-                      <span className="sr-only">LinkedIn</span>
-                    </Link>
-                    <Link
-                      href="https://facebook.com/streamline"
-                      className="rounded-full bg-muted p-2 text-muted-foreground hover:text-foreground"
+                      href="#"
+                      className="rounded-full bg-muted p-2 text-muted-foreground hover:text-foreground transition-colors"
                     >
                       <Facebook className="h-5 w-5" />
                       <span className="sr-only">Facebook</span>
                     </Link>
                     <Link
-                      href="https://instagram.com/streamline"
-                      className="rounded-full bg-muted p-2 text-muted-foreground hover:text-foreground"
+                      href="#"
+                      className="rounded-full bg-muted p-2 text-muted-foreground hover:text-foreground transition-colors"
                     >
                       <Instagram className="h-5 w-5" />
                       <span className="sr-only">Instagram</span>
                     </Link>
                     <Link
-                      href="https://github.com/streamline"
-                      className="rounded-full bg-muted p-2 text-muted-foreground hover:text-foreground"
+                      href="#"
+                      className="rounded-full bg-muted p-2 text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      <Linkedin className="h-5 w-5" />
+                      <span className="sr-only">LinkedIn</span>
+                    </Link>
+                    <Link
+                      href="#"
+                      className="rounded-full bg-muted p-2 text-muted-foreground hover:text-foreground transition-colors"
                     >
                       <Github className="h-5 w-5" />
-                      <span className="sr-only">GitHub</span>
+                      <span className="sr-only">Github</span>
                     </Link>
                   </div>
                 </div>
               </div>
               <div>
                 <Card>
-                  <CardHeader>
-                    <CardTitle className="text-2xl">Send Us a Message</CardTitle>
+                  <CardHeader className="p-4 sm:p-6">
+                    <CardTitle className="text-xl sm:text-2xl">
+                      Send Us a Message
+                    </CardTitle>
                     <CardDescription>
-                      Fill out the form below and we'll get back to you as soon as possible.
+                      Fill out the form below and we'll get back to you as soon
+                      as possible.
                     </CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="name">Name</Label>
-                        <Input
-                          id="name"
+                  <CardContent className="p-4 sm:p-6 pt-0 sm:pt-0">
+                    <Form {...form}>
+                      <form
+                        onSubmit={form.handleSubmit(onSubmit)}
+                        className="space-y-4"
+                      >
+                        <FormField
+                          control={form.control}
                           name="name"
-                          placeholder="Your name"
-                          required
-                          value={formData.name}
-                          onChange={handleChange}
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="flex items-center gap-1 after:content-['*'] after:text-red-500">
+                                Name
+                              </FormLabel>
+                              <FormControl>
+                                <Input placeholder="Your name" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
                         />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="email">Email</Label>
-                        <Input
-                          id="email"
+                        <FormField
+                          control={form.control}
                           name="email"
-                          type="email"
-                          placeholder="Your email"
-                          required
-                          value={formData.email}
-                          onChange={handleChange}
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="flex items-center gap-1 after:content-['*'] after:text-red-500">
+                                Email
+                              </FormLabel>
+                              <FormControl>
+                                <Input
+                                  type="email"
+                                  placeholder="Your email"
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
                         />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="subject">Subject</Label>
-                        <Input
-                          id="subject"
+                        <FormField
+                          control={form.control}
                           name="subject"
-                          placeholder="Subject"
-                          required
-                          value={formData.subject}
-                          onChange={handleChange}
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="flex items-center gap-1 after:content-['*'] after:text-red-500">
+                                Subject
+                              </FormLabel>
+                              <FormControl>
+                                <Input placeholder="Subject" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
                         />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="message">Message</Label>
-                        <Textarea
-                          id="message"
+                        <FormField
+                          control={form.control}
                           name="message"
-                          placeholder="Your message"
-                          rows={5}
-                          required
-                          value={formData.message}
-                          onChange={handleChange}
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="flex items-center gap-1 after:content-['*'] after:text-red-500">
+                                Message
+                              </FormLabel>
+                              <FormControl>
+                                <Textarea
+                                  placeholder="Your message"
+                                  rows={5}
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
                         />
-                      </div>
-                      <Button type="submit" className="w-full" disabled={isSubmitting}>
-                        {isSubmitting ? "Sending..." : "Send Message"}
-                        {!isSubmitting && <ArrowRight className="ml-2 h-4 w-4" />}
-                      </Button>
-                    </form>
+                        <Button
+                          type="submit"
+                          className="w-full"
+                          disabled={isSubmitting}
+                        >
+                          {isSubmitting ? "Sending..." : "Send Message"}
+                          {!isSubmitting && (
+                            <ArrowRight className="ml-2 h-4 w-4" />
+                          )}
+                        </Button>
+                      </form>
+                    </Form>
                   </CardContent>
                 </Card>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Map Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter">Visit Our Office</h2>
-                <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                  We're located in the heart of San Francisco's tech district.
-                </p>
-              </div>
-            </div>
-            <div className="mt-8 h-[400px] w-full overflow-hidden rounded-lg bg-muted">
-              {/* Placeholder for map - in a real app, you'd use a map component here */}
-              <div className="flex h-full w-full items-center justify-center bg-muted">
-                <p className="text-muted-foreground">Map would be displayed here</p>
               </div>
             </div>
           </div>
@@ -302,7 +294,9 @@ export default function ContactPage() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter">Frequently Asked Questions</h2>
+                <h2 className="text-3xl font-bold tracking-tighter">
+                  Frequently Asked Questions
+                </h2>
                 <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
                   Find quick answers to common questions.
                 </p>
@@ -344,99 +338,6 @@ export default function ContactPage() {
           </div>
         </section>
       </main>
-
-      {/* Footer */}
-      <footer className="w-full border-t bg-background py-6 md:py-12">
-        <div className="container px-4 md:px-6">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            <div className="space-y-4">
-              <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-                <BarChart2 className="h-6 w-6" />
-                <span>StreamLine</span>
-              </Link>
-              <p className="text-sm text-muted-foreground">Simplifying data analytics for businesses worldwide.</p>
-            </div>
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold">Company</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/careers" className="text-sm text-muted-foreground hover:text-foreground">
-                    Careers
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/blog" className="text-sm text-muted-foreground hover:text-foreground">
-                    Blog
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold">Legal</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/terms" className="text-sm text-muted-foreground hover:text-foreground">
-                    Terms of Service
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/cookies" className="text-sm text-muted-foreground hover:text-foreground">
-                    Cookie Policy
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold">Connect</h3>
-              <div className="flex space-x-4">
-                <Link href="https://twitter.com/streamline" className="text-muted-foreground hover:text-foreground">
-                  <Twitter className="h-5 w-5" />
-                  <span className="sr-only">Twitter</span>
-                </Link>
-                <Link
-                  href="https://linkedin.com/company/streamline"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  <Linkedin className="h-5 w-5" />
-                  <span className="sr-only">LinkedIn</span>
-                </Link>
-                <Link href="https://facebook.com/streamline" className="text-muted-foreground hover:text-foreground">
-                  <Facebook className="h-5 w-5" />
-                  <span className="sr-only">Facebook</span>
-                </Link>
-                <Link href="https://instagram.com/streamline" className="text-muted-foreground hover:text-foreground">
-                  <Instagram className="h-5 w-5" />
-                  <span className="sr-only">Instagram</span>
-                </Link>
-                <Link href="https://github.com/streamline" className="text-muted-foreground hover:text-foreground">
-                  <Github className="h-5 w-5" />
-                  <span className="sr-only">GitHub</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-          <Separator className="my-6" />
-          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} StreamLine, Inc. All rights reserved.
-            </p>
-            <p className="text-sm text-muted-foreground">
-              Made with <Heart className="inline-block h-4 w-4 text-red-500" /> in San Francisco, CA
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
-  )
+  );
 }
-
