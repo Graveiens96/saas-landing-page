@@ -1,11 +1,23 @@
-import Link from "next/link"
-import { ArrowRight, Check } from "lucide-react"
+import Link from "next/link";
+import { ArrowRight, Check } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
-import { Badge } from "@/components/ui/badge"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { Badge } from "@/components/ui/badge";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function PricingPage() {
   return (
@@ -20,7 +32,8 @@ export default function PricingPage() {
                   Simple, Transparent Pricing
                 </h1>
                 <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                  Choose the plan that's right for your business. All plans include a 14-day free trial.
+                  Choose the plan that's right for your business. All plans
+                  include a 14-day free trial.
                 </p>
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -97,13 +110,24 @@ export default function PricingPage() {
                   popular: false,
                 },
               ].map((plan, index) => (
-                <Card key={index} className={`flex flex-col ${plan.popular ? "border-primary shadow-lg" : ""}`}>
+                <Card
+                  key={index}
+                  className={`flex flex-col ${
+                    plan.popular ? "border-primary shadow-lg" : ""
+                  }`}
+                >
                   <CardHeader className="p-4 sm:p-6">
-                    {plan.popular && <Badge className="w-fit mb-2">Most Popular</Badge>}
+                    {plan.popular && (
+                      <Badge className="w-fit mb-2">Most Popular</Badge>
+                    )}
                     <CardTitle>{plan.name}</CardTitle>
                     <div className="flex items-baseline gap-1">
-                      <span className="text-2xl sm:text-3xl font-bold">{plan.price}</span>
-                      {plan.price !== "Custom" && <span className="text-muted-foreground">/month</span>}
+                      <span className="text-2xl sm:text-3xl font-bold">
+                        {plan.price}
+                      </span>
+                      {plan.price !== "Custom" && (
+                        <span className="text-muted-foreground">/month</span>
+                      )}
                     </div>
                     <CardDescription>{plan.description}</CardDescription>
                   </CardHeader>
@@ -118,7 +142,10 @@ export default function PricingPage() {
                     </ul>
                   </CardContent>
                   <CardFooter className="p-4 sm:p-6 pt-0 sm:pt-0">
-                    <Button className="w-full" variant={plan.popular ? "default" : "outline"}>
+                    <Button
+                      className="w-full"
+                      variant={plan.popular ? "default" : "outline"}
+                    >
                       {plan.cta}
                     </Button>
                   </CardFooter>
@@ -133,7 +160,9 @@ export default function PricingPage() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Compare Features</h2>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                  Compare Features
+                </h2>
                 <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
                   A detailed comparison of what's included in each plan.
                 </p>
@@ -144,29 +173,89 @@ export default function PricingPage() {
                 <thead>
                   <tr className="border-b">
                     <th className="py-4 px-4 text-left font-medium">Feature</th>
-                    <th className="py-4 px-4 text-center font-medium">Starter</th>
-                    <th className="py-4 px-4 text-center font-medium">Professional</th>
-                    <th className="py-4 px-4 text-center font-medium">Enterprise</th>
+                    <th className="py-4 px-4 text-center font-medium">
+                      Starter
+                    </th>
+                    <th className="py-4 px-4 text-center font-medium">
+                      Professional
+                    </th>
+                    <th className="py-4 px-4 text-center font-medium">
+                      Enterprise
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
                   {[
-                    { feature: "Users", starter: "Up to 5", professional: "Up to 20", enterprise: "Unlimited" },
-                    { feature: "Data Sources", starter: "5", professional: "Unlimited", enterprise: "Unlimited" },
-                    { feature: "Data Refresh", starter: "Daily", professional: "Hourly", enterprise: "Real-time" },
-                    { feature: "Storage", starter: "1 GB", professional: "10 GB", enterprise: "Unlimited" },
-                    { feature: "Support", starter: "Email", professional: "Priority", enterprise: "24/7 Dedicated" },
-                    { feature: "Custom Dashboards", starter: "✕", professional: "✓", enterprise: "✓" },
-                    { feature: "API Access", starter: "✕", professional: "✓", enterprise: "✓" },
-                    { feature: "Advanced Security", starter: "✕", professional: "✕", enterprise: "✓" },
-                    { feature: "SSO", starter: "✕", professional: "✕", enterprise: "✓" },
-                    { feature: "Custom Integrations", starter: "✕", professional: "✕", enterprise: "✓" },
+                    {
+                      feature: "Users",
+                      starter: "Up to 5",
+                      professional: "Up to 20",
+                      enterprise: "Unlimited",
+                    },
+                    {
+                      feature: "Data Sources",
+                      starter: "5",
+                      professional: "Unlimited",
+                      enterprise: "Unlimited",
+                    },
+                    {
+                      feature: "Data Refresh",
+                      starter: "Daily",
+                      professional: "Hourly",
+                      enterprise: "Real-time",
+                    },
+                    {
+                      feature: "Storage",
+                      starter: "1 GB",
+                      professional: "10 GB",
+                      enterprise: "Unlimited",
+                    },
+                    {
+                      feature: "Support",
+                      starter: "Email",
+                      professional: "Priority",
+                      enterprise: "24/7 Dedicated",
+                    },
+                    {
+                      feature: "Custom Dashboards",
+                      starter: "✕",
+                      professional: "✓",
+                      enterprise: "✓",
+                    },
+                    {
+                      feature: "API Access",
+                      starter: "✕",
+                      professional: "✓",
+                      enterprise: "✓",
+                    },
+                    {
+                      feature: "Advanced Security",
+                      starter: "✕",
+                      professional: "✕",
+                      enterprise: "✓",
+                    },
+                    {
+                      feature: "SSO",
+                      starter: "✕",
+                      professional: "✕",
+                      enterprise: "✓",
+                    },
+                    {
+                      feature: "Custom Integrations",
+                      starter: "✕",
+                      professional: "✕",
+                      enterprise: "✓",
+                    },
                   ].map((row, index) => (
                     <tr key={index} className="border-b">
                       <td className="py-4 px-4 font-medium">{row.feature}</td>
                       <td className="py-4 px-4 text-center">{row.starter}</td>
-                      <td className="py-4 px-4 text-center">{row.professional}</td>
-                      <td className="py-4 px-4 text-center">{row.enterprise}</td>
+                      <td className="py-4 px-4 text-center">
+                        {row.professional}
+                      </td>
+                      <td className="py-4 px-4 text-center">
+                        {row.enterprise}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -217,13 +306,16 @@ export default function PricingPage() {
                       "Your data remains stored in our system for 30 days after cancellation, giving you time to export it if needed. After 30 days, it will be permanently deleted from our servers.",
                   },
                   {
-                    question: "Do you offer discounts for nonprofits or educational institutions?",
+                    question:
+                      "Do you offer discounts for nonprofits or educational institutions?",
                     answer:
                       "Yes, we offer special pricing for qualified nonprofits, educational institutions, and startups. Please contact our sales team for more information.",
                   },
                 ].map((faq, index) => (
                   <AccordionItem key={index} value={`item-${index}`}>
-                    <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
+                    <AccordionTrigger className="text-left">
+                      {faq.question}
+                    </AccordionTrigger>
                     <AccordionContent>{faq.answer}</AccordionContent>
                   </AccordionItem>
                 ))}
@@ -237,9 +329,12 @@ export default function PricingPage() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Still Have Questions?</h2>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                  Still Have Questions?
+                </h2>
                 <p className="mx-auto max-w-[700px] md:text-xl">
-                  Our team is here to help you find the perfect plan for your business.
+                  Our team is here to help you find the perfect plan for your
+                  business.
                 </p>
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -249,7 +344,7 @@ export default function PricingPage() {
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
-                <Link href="/demo">
+                <Link href="/contact">
                   <Button
                     size="lg"
                     variant="outline"
@@ -264,6 +359,5 @@ export default function PricingPage() {
         </section>
       </main>
     </div>
-  )
+  );
 }
-
