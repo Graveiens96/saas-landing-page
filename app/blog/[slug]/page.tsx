@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -28,16 +27,6 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-=======
-import Link from "next/link"
-import Image from "next/image"
-import { ArrowLeft, ArrowRight, Calendar, Clock, Facebook, Linkedin, Share2, Twitter, User } from "lucide-react"
-
-import { Button } from "@/components/ui/button"
-import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
-import { Badge } from "@/components/ui/badge"
->>>>>>> b82a5ebeee784bb7d325f364fa1f2ac273731e58
 
 // Mock blog post data
 const blogPosts = [
@@ -201,9 +190,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
               {/* Share Links */}
               <div className="mt-8 sm:mt-12 flex flex-wrap items-center gap-3 sm:gap-4">
-                <span className="font-medium text-sm sm:text-base">Share this article:</span>
+                <span className="font-medium text-sm sm:text-base">
+                  Share this article:
+                </span>
                 <div className="flex gap-2">
-<<<<<<< HEAD
                   <Button
                     variant="outline"
                     size="icon"
@@ -233,21 +223,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                     size="icon"
                     className="rounded-full"
                   >
-=======
-                  <Button variant="outline" size="icon" className="h-8 w-8 sm:h-10 sm:w-10 rounded-full">
-                    <Twitter className="h-4 w-4" />
-                    <span className="sr-only">Share on Twitter</span>
-                  </Button>
-                  <Button variant="outline" size="icon" className="h-8 w-8 sm:h-10 sm:w-10 rounded-full">
-                    <Facebook className="h-4 w-4" />
-                    <span className="sr-only">Share on Facebook</span>
-                  </Button>
-                  <Button variant="outline" size="icon" className="h-8 w-8 sm:h-10 sm:w-10 rounded-full">
-                    <Linkedin className="h-4 w-4" />
-                    <span className="sr-only">Share on LinkedIn</span>
-                  </Button>
-                  <Button variant="outline" size="icon" className="h-8 w-8 sm:h-10 sm:w-10 rounded-full">
->>>>>>> b82a5ebeee784bb7d325f364fa1f2ac273731e58
                     <Share2 className="h-4 w-4" />
                     <span className="sr-only">Copy link</span>
                   </Button>
@@ -268,17 +243,11 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                     />
                   </div>
                   <div>
-<<<<<<< HEAD
                     <h3 className="text-xl font-bold">{post.author}</h3>
                     <p className="text-sm text-muted-foreground mb-2">
                       {post.authorTitle}
                     </p>
                     <p>{post.authorBio}</p>
-=======
-                    <h3 className="text-lg sm:text-xl font-bold">{post.author}</h3>
-                    <p className="text-xs sm:text-sm text-muted-foreground mb-2">{post.authorTitle}</p>
-                    <p className="text-sm sm:text-base text-wrap">{post.authorBio}</p>
->>>>>>> b82a5ebeee784bb7d325f364fa1f2ac273731e58
                   </div>
                 </div>
                 <Separator className="my-6 sm:my-8" />
@@ -296,7 +265,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               </h2>
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {relatedPosts.map((post) => (
-                  <Card key={post.id} className="overflow-hidden flex flex-col h-full">
+                  <Card
+                    key={post.id}
+                    className="overflow-hidden flex flex-col h-full"
+                  >
                     <div className="relative h-48 w-full">
                       <Image
                         src={post.image || "/placeholder.svg"}
@@ -337,7 +309,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             </div>
           </div>
         </section>
-<<<<<<< HEAD
 
         {/* Newsletter */}
         <section className="w-full py-12 md:py-24 lg:py-32 bg-primary text-primary-foreground">
@@ -377,8 +348,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             </div>
           </div>
         </section>
-=======
->>>>>>> b82a5ebeee784bb7d325f364fa1f2ac273731e58
       </main>
     </div>
   );
