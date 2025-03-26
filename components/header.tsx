@@ -1,52 +1,52 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { BarChart2, Menu, X } from "lucide-react";
+import { useState, useEffect } from "react"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { BarChart2, Menu, X } from "lucide-react"
 
 export function Header() {
-  const pathname = usePathname();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname()
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   // Close mobile menu when route changes
   useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [pathname]);
+    setMobileMenuOpen(false)
+  }, [pathname])
 
   // Close mobile menu when ESC key is pressed
   useEffect(() => {
     const handleEsc = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setMobileMenuOpen(false);
+        setMobileMenuOpen(false)
       }
-    };
+    }
 
-    window.addEventListener("keydown", handleEsc);
+    window.addEventListener("keydown", handleEsc)
 
     return () => {
-      window.removeEventListener("keydown", handleEsc);
-    };
-  }, []);
+      window.removeEventListener("keydown", handleEsc)
+    }
+  }, [])
 
   // Prevent scrolling when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = "hidden"
     } else {
-      document.body.style.overflow = "";
+      document.body.style.overflow = ""
     }
 
     return () => {
-      document.body.style.overflow = "";
-    };
-  }, [mobileMenuOpen]);
+      document.body.style.overflow = ""
+    }
+  }, [mobileMenuOpen])
 
   const isActive = (path: string) => {
-    if (path === "/" && pathname === "/") return true;
-    if (path !== "/" && pathname.startsWith(path)) return true;
-    return false;
-  };
+    if (path === "/" && pathname === "/") return true
+    if (path !== "/" && pathname.startsWith(path)) return true
+    return false
+  }
 
   const navItems = [
     { href: "/", label: "Home" },
@@ -54,7 +54,7 @@ export function Header() {
     { href: "/pricing", label: "Pricing" },
     { href: "/blog", label: "Blog" },
     { href: "/contact", label: "Contact" },
-  ];
+  ]
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -88,9 +88,7 @@ export function Header() {
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-expanded={mobileMenuOpen}
         >
-          <span className="sr-only">
-            {mobileMenuOpen ? "Close menu" : "Open menu"}
-          </span>
+          <span className="sr-only">{mobileMenuOpen ? "Close menu" : "Open menu"}</span>
           {mobileMenuOpen ? (
             <X className="block h-6 w-6" aria-hidden="true" />
           ) : (
@@ -136,5 +134,6 @@ export function Header() {
         />
       )}
     </header>
-  );
+  )
 }
+

@@ -1,26 +1,11 @@
 import Link from "next/link"
 import Image from "next/image"
-import {
-  ArrowLeft,
-  ArrowRight,
-  BarChart2,
-  Calendar,
-  Clock,
-  Facebook,
-  Github,
-  Heart,
-  Instagram,
-  Linkedin,
-  Share2,
-  Twitter,
-  User,
-} from "lucide-react"
+import { ArrowLeft, ArrowRight, Calendar, Clock, Facebook, Linkedin, Share2, Twitter, User } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { Badge } from "@/components/ui/badge"
-import { Input } from "@/components/ui/input"
 
 // Mock blog post data
 const blogPosts = [
@@ -116,43 +101,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center">
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-            <BarChart2 className="h-6 w-6" />
-            <span>StreamLine</span>
-          </Link>
-          <nav className="ml-auto flex gap-4 sm:gap-6">
-            <Link href="/" className="text-sm font-medium hover:underline underline-offset-4">
-              Home
-            </Link>
-            <Link href="/about" className="text-sm font-medium hover:underline underline-offset-4">
-              About
-            </Link>
-            <Link href="/pricing" className="text-sm font-medium hover:underline underline-offset-4">
-              Pricing
-            </Link>
-            <Link href="/blog" className="text-sm font-medium underline underline-offset-4">
-              Blog
-            </Link>
-            <Link href="/contact" className="text-sm font-medium hover:underline underline-offset-4">
-              Contact
-            </Link>
-          </nav>
-          <div className="ml-4 lg:ml-6 flex items-center gap-2">
-            <Link href="/login">
-              <Button variant="ghost" size="sm">
-                Log in
-              </Button>
-            </Link>
-            <Link href="/signup">
-              <Button size="sm">Sign up</Button>
-            </Link>
-          </div>
-        </div>
-      </header>
-
       <main className="flex-1">
         {/* Blog Post Header */}
         <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-background to-muted">
@@ -196,56 +144,57 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         </section>
 
         {/* Blog Post Content */}
-        <section className="w-full py-8 md:py-12">
+        <section className="w-full py-6 sm:py-8 md:py-12">
           <div className="container px-4 md:px-6">
             <div className="mx-auto max-w-3xl">
               <div
-                className="prose prose-lg max-w-none dark:prose-invert"
+                className="prose prose-sm sm:prose-base lg:prose-lg max-w-none dark:prose-invert"
                 dangerouslySetInnerHTML={{ __html: post.content }}
               />
 
               {/* Share Links */}
-              <div className="mt-12 flex items-center gap-4">
-                <span className="font-medium">Share this article:</span>
+              <div className="mt-8 sm:mt-12 flex flex-wrap items-center gap-3 sm:gap-4">
+                <span className="font-medium text-sm sm:text-base">Share this article:</span>
                 <div className="flex gap-2">
-                  <Button variant="outline" size="icon" className="rounded-full">
+                  <Button variant="outline" size="icon" className="h-8 w-8 sm:h-10 sm:w-10 rounded-full">
                     <Twitter className="h-4 w-4" />
                     <span className="sr-only">Share on Twitter</span>
                   </Button>
-                  <Button variant="outline" size="icon" className="rounded-full">
+                  <Button variant="outline" size="icon" className="h-8 w-8 sm:h-10 sm:w-10 rounded-full">
                     <Facebook className="h-4 w-4" />
                     <span className="sr-only">Share on Facebook</span>
                   </Button>
-                  <Button variant="outline" size="icon" className="rounded-full">
+                  <Button variant="outline" size="icon" className="h-8 w-8 sm:h-10 sm:w-10 rounded-full">
                     <Linkedin className="h-4 w-4" />
                     <span className="sr-only">Share on LinkedIn</span>
                   </Button>
-                  <Button variant="outline" size="icon" className="rounded-full">
+                  <Button variant="outline" size="icon" className="h-8 w-8 sm:h-10 sm:w-10 rounded-full">
                     <Share2 className="h-4 w-4" />
                     <span className="sr-only">Copy link</span>
                   </Button>
                 </div>
               </div>
 
-              {/* Author Bio */}
-              <div className="mt-12">
-                <Separator className="my-8" />
-                <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start">
-                  <div className="relative h-24 w-24 overflow-hidden rounded-full">
+              {/* Author Bio - Fixed image issues */}
+              <div className="mt-8 sm:mt-12">
+                <Separator className="my-6 sm:my-8" />
+                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center sm:items-start">
+                  <div className="relative h-20 w-20 sm:h-24 sm:w-24 flex-shrink-0 overflow-hidden rounded-full">
                     <Image
                       src={post.authorImage || "/placeholder.svg"}
                       alt={post.author}
-                      fill
+                      width={96}
+                      height={96}
                       className="object-cover"
                     />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold">{post.author}</h3>
-                    <p className="text-sm text-muted-foreground mb-2">{post.authorTitle}</p>
-                    <p>{post.authorBio}</p>
+                    <h3 className="text-lg sm:text-xl font-bold">{post.author}</h3>
+                    <p className="text-xs sm:text-sm text-muted-foreground mb-2">{post.authorTitle}</p>
+                    <p className="text-sm sm:text-base text-wrap">{post.authorBio}</p>
                   </div>
                 </div>
-                <Separator className="my-8" />
+                <Separator className="my-6 sm:my-8" />
               </div>
             </div>
           </div>
@@ -258,11 +207,11 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               <h2 className="text-3xl font-bold tracking-tighter mb-8">Related Articles</h2>
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {relatedPosts.map((post) => (
-                  <Card key={post.id} className="overflow-hidden">
+                  <Card key={post.id} className="overflow-hidden flex flex-col h-full">
                     <div className="relative h-48 w-full">
                       <Image src={post.image || "/placeholder.svg"} alt={post.title} fill className="object-cover" />
                     </div>
-                    <CardHeader>
+                    <CardHeader className="flex-1">
                       <div className="flex items-center gap-2">
                         <Badge className="w-fit">{post.category}</Badge>
                       </div>
@@ -277,8 +226,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                         <Calendar className="h-4 w-4" />
                         <span>{post.date}</span>
                       </div>
-                      <Link href={`/blog/${post.slug}`}>
-                        <Button variant="outline" size="sm">
+                      <Link href={`/blog/${post.slug}`} className="w-full">
+                        <Button variant="outline" size="sm" className="w-full">
                           Read More
                           <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
@@ -290,132 +239,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             </div>
           </div>
         </section>
-
-        {/* Newsletter */}
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-primary text-primary-foreground">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Stay Updated</h2>
-                <p className="mx-auto max-w-[700px] md:text-xl">
-                  Subscribe to our newsletter to receive the latest insights and articles directly in your inbox.
-                </p>
-              </div>
-              <div className="mx-auto w-full max-w-sm space-y-2">
-                <form className="flex gap-2">
-                  <Input
-                    type="email"
-                    placeholder="Enter your email"
-                    className="max-w-lg flex-1 bg-primary-foreground text-foreground"
-                  />
-                  <Button type="submit" variant="secondary">
-                    Subscribe
-                  </Button>
-                </form>
-                <p className="text-xs">
-                  By subscribing, you agree to our{" "}
-                  <Link href="/privacy" className="underline underline-offset-2">
-                    Privacy Policy
-                  </Link>
-                  .
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
-
-      {/* Footer */}
-      <footer className="w-full border-t bg-background py-6 md:py-12">
-        <div className="container px-4 md:px-6">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            <div className="space-y-4">
-              <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-                <BarChart2 className="h-6 w-6" />
-                <span>StreamLine</span>
-              </Link>
-              <p className="text-sm text-muted-foreground">Simplifying data analytics for businesses worldwide.</p>
-            </div>
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold">Company</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/careers" className="text-sm text-muted-foreground hover:text-foreground">
-                    Careers
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/blog" className="text-sm text-muted-foreground hover:text-foreground">
-                    Blog
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold">Legal</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/terms" className="text-sm text-muted-foreground hover:text-foreground">
-                    Terms of Service
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/cookies" className="text-sm text-muted-foreground hover:text-foreground">
-                    Cookie Policy
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold">Connect</h3>
-              <div className="flex space-x-4">
-                <Link href="https://twitter.com/streamline" className="text-muted-foreground hover:text-foreground">
-                  <Twitter className="h-5 w-5" />
-                  <span className="sr-only">Twitter</span>
-                </Link>
-                <Link
-                  href="https://linkedin.com/company/streamline"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  <Linkedin className="h-5 w-5" />
-                  <span className="sr-only">LinkedIn</span>
-                </Link>
-                <Link href="https://facebook.com/streamline" className="text-muted-foreground hover:text-foreground">
-                  <Facebook className="h-5 w-5" />
-                  <span className="sr-only">Facebook</span>
-                </Link>
-                <Link href="https://instagram.com/streamline" className="text-muted-foreground hover:text-foreground">
-                  <Instagram className="h-5 w-5" />
-                  <span className="sr-only">Instagram</span>
-                </Link>
-                <Link href="https://github.com/streamline" className="text-muted-foreground hover:text-foreground">
-                  <Github className="h-5 w-5" />
-                  <span className="sr-only">GitHub</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-          <Separator className="my-6" />
-          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} StreamLine, Inc. All rights reserved.
-            </p>
-            <p className="text-sm text-muted-foreground">
-              Made with <Heart className="inline-block h-4 w-4 text-red-500" /> in San Francisco, CA
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }
